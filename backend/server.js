@@ -4,8 +4,6 @@ const port = process.env.PORT || 8001;
 
 const app = express();
 
-app.get('/api/goals', (req, res) => {
-    res.status(200).json({ message: 'get goals' });
-});
+app.use('/api/goals', require('./routes/goalRoutes.js'))
 
 app.listen(port, () => console.log(`server started on port ${port}`));
